@@ -14,9 +14,10 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+require('./db');
+
 app.use('/dummy', dummyRouter);
 app.use('/tasks', tasksRouter);
 
-require('./db');
 
 app.listen(8082, () => console.log('Servidor iniciado en el puerto 8082'));
