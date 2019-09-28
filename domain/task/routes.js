@@ -11,4 +11,10 @@ router.get('/', async (req, res) => {
     return res.json({ message });
 });
 
+router.get('/active', async(req, res) => {
+    const message = await taskService.getActiveTasks();
+
+    return res.json({ message });
+});
+
 module.exports = router;
