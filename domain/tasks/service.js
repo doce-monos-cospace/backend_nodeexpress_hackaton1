@@ -15,8 +15,13 @@ module.exports = (db) => {
     };
 
     const deleteTask = async (id) => {
+        try {
         const deleteTask = await db.Task.findByIdAndRemove({ id });
         return deleteTask;
+        
+        } catch(error){
+            console.error(error);
+        }
     };
   
     const getActiveTasks = async () => {
@@ -27,6 +32,12 @@ module.exports = (db) => {
 
     const create = async ( data ) => {
         try {
+            data.startTime = Date.now();
+            data.endTime = Date.now();
+            data.isPaused = false;
+            data.isEnded = false;
+            data.accumulated = Date.now();
+
             const newTask = await db.Task.create(data);
 
                 return newTask; 

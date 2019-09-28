@@ -5,6 +5,12 @@ const createTaskService = require('./service');
 const taskService = createTaskService(db);
 
 router.get('/', async (req, res) => {
+    const tasks = await taskService.getTasks();
+
+    return res.json({ tasks });
+});
+
+router.get('/', async (req, res) => {
     const { name = '' } = req.query;
     const message = await taskService.getTasksByName({ name });
 
