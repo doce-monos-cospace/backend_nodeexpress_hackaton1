@@ -1,12 +1,17 @@
 module.exports = (db) => {
     const getTasks = async () => {
-        const tasks = await db.Tasks.find({});
+        const tasks = await db.Task.find({});
         return tasks;
     };
 
     const getFinishedTasks = async () => {
-        const tasks = await db.Tasks.find({ isEnded: true });
+        const tasks = await db.Task.find({ isEnded: true });
         return tasks;
+    };
+
+    const deleteTask = async (id) => {
+        const deleteTask = await db.Task.findByIdAndRemove({ id });
+        return deleteTask;
     };
 
    const getTasksByName = async ({ name }) => {
@@ -41,8 +46,10 @@ module.exports = (db) => {
     return {
         getTasks,
         getFinishedTasks,
+        deleteTask,
        getTasksByName,
         getActiveTasks,
         create,
     };
 };
+
