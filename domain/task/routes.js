@@ -21,4 +21,11 @@ router.delete('/:id',async (req, res) =>{
     return res.json({ deleteTask });
  })
 
+router.post('/', async(req, res) => {
+    const {name = '', startTime = Date.now(), endTime = Date.now() } = req.query;
+    const message = await taskService.create({ name, startTime, endTime });
+
+    return res.status(200).send('Task successfully created');
+});
+
 module.exports = router;

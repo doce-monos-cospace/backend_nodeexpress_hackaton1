@@ -26,6 +26,21 @@ module.exports = (db) => {
         return tasks;
     };
 
+    const create = async ({ name, startTime, endTime }) => {
+        try {
+            const newTask = await db.Task.create({
+                name,
+                startTime,
+                endTime,
+                isPaused: false,
+                isEnded: false});
+
+                return; 
+        } catch (error) {
+            console.error(error);
+        }
+        
+    };
 
   
     return {
@@ -34,6 +49,7 @@ module.exports = (db) => {
         deleteTask,
        getTasksByName,
         getActiveTasks,
+        create,
     };
 };
 
