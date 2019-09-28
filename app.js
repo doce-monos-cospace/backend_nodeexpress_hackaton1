@@ -9,7 +9,9 @@ const bodyParser = require('body-parser');
 const dummyRouter = require('./domain/dummy/routes');
 const tasksRouter = require('./domain/tasks/routes');
 
-app.use(morgan('dev'));
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('dev'));
+}
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
