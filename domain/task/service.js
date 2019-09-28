@@ -11,9 +11,23 @@ module.exports = (db) => {
         return tasks;
     };
 
+    const setNewTask = async (_name, _startTime, _endTime) => {
+        try {
+            return db.Task.insertOne({
+                name: _name,
+                startTime: _startTime,
+                endTime: _endTime,
+                isPaused: false,
+                isEnded: false});
+        } catch (error) {
+            console.error(error);
+        }
+        
+    };
 
     return {
         getTasksByName,
         getActiveTasks,
+        setNewTask,
     };
 };
