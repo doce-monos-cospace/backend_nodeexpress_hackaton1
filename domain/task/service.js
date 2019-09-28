@@ -10,7 +10,7 @@ module.exports = (db) => {
     };
 
     const deleteTask = async (id) => {
-        const deleteTask = await db.Tasks.delete({ id });
+        const deleteTask = await db.Task.findByIdAndRemove({ id });
         return deleteTask;
     };
 
@@ -20,5 +20,4 @@ module.exports = (db) => {
         deleteTask,
     };
 };
-
 
