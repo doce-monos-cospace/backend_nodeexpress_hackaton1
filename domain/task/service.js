@@ -27,9 +27,27 @@ module.exports = (db) => {
         
     };
 
+    const update = async({ id, name, startTime, endTime, isPaused, isEnded, accumulated }) => {
+        try {
+            const modTask = await db.Task.findByIdAndUpdate(id, {
+                name,
+                startTime,
+                endTime,
+                isPaused,
+                isEnded,
+                accumulated,
+            });
+
+            return;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     return {
         getTasksByName,
         getActiveTasks,
         create,
+        update,
     };
 };
