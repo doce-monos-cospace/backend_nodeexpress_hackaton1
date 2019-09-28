@@ -7,7 +7,6 @@ const taskSchema = new Schema({
     isPaused: Boolean,
     isEnded: Boolean,
     accumulated: Date,
-
 });
 
 const Task = model('tasks', taskSchema);
