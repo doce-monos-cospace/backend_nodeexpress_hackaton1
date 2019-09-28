@@ -10,7 +10,7 @@ return res.json({ tasks });
 })
 
 router.get('/finish',async (req, res) =>{
-    const finishedTasks = await taskService.getTasksFinished();
+    const finishedTasks = await taskService.getFinishedTasks();
     return res.json({ finishedTasks });
  })
 
