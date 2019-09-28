@@ -5,8 +5,8 @@ module.exports = (db) => {
         return tasks;
     };
 
-    const getActiveTasks = async ({ isEnded = false, isPaused = false }) => {
-        const tasks = await db.Task.find({ isEnded, isPaused });
+    const getActiveTasks = async () => {
+        const tasks = await db.Task.find({ isEnded: false, isPaused:false });
 
         return tasks;
     };
