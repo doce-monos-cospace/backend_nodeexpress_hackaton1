@@ -10,9 +10,16 @@ return tasks;
         return tasks;
     };
 
+    const getActiveTasks = async () => {
+        const tasks = await db.Task.find({ isEnded: false, isPaused:false });
+
+        return tasks;
+    };
+
 
     return {
         getTasksByName,
+        getActiveTasks,
     };
 };
   
