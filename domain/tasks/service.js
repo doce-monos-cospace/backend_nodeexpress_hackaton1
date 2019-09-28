@@ -1,6 +1,7 @@
 module.exports = (db) => {
     const getTasksByName = async ({ name }) => {
-              const tasks = await db.Task.find({ name });
+        console.log(name);
+        const tasks = await db.Task.find({ name: { $regex: name, $options: 'i' } });
         
         return tasks;
     };
