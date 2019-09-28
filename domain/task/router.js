@@ -14,9 +14,4 @@ router.get('/finish',async (req, res) =>{
     return res.json({ finishedTasks });
  })
 
- router.delete('/',async (req, res) =>{
-    const deleteTask = await taskService.deleteTask(id);
-    return res.json({ deleteTask });
- })
-
 module.exports = router;
