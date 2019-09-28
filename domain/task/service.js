@@ -11,14 +11,16 @@ module.exports = (db) => {
         return tasks;
     };
 
-    const setNewTask = async (_name, _startTime, _endTime) => {
+    const create = async ({ name, startTime, endTime }) => {
         try {
-            return db.Task.insertOne({
+            const newTask = await db.Task.insertOne({
                 name: _name,
                 startTime: _startTime,
                 endTime: _endTime,
                 isPaused: false,
                 isEnded: false});
+
+                return; 
         } catch (error) {
             console.error(error);
         }
@@ -28,6 +30,6 @@ module.exports = (db) => {
     return {
         getTasksByName,
         getActiveTasks,
-        setNewTask,
+        create,
     };
 };
