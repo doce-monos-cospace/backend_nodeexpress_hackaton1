@@ -17,4 +17,4 @@ app.use('/dummy', dummyRouter);
 
 require('./db');
 
-app.listen(8082, () => console.log('Servidor iniciado en el puerto 8082'));
+app.listen(process.env.PORT || 8082, () => console.log('Servidor iniciado en el puerto 8082'));
