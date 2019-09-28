@@ -4,7 +4,7 @@
   "description": "Arquitectura básica creada para la hackatón de Doce Monos",
   "main": "app.js",
   "scripts": {
-    "start": "node .",
+    "start": "node app.js",
     "dev": "nodemon .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
