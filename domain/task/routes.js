@@ -24,17 +24,11 @@ router.post('/', async(req, res) => {
     return res.status(200).send('Task successfully created');
 });
 
-router.put('/', async (req, res) => {
-    const {
-        id = '',
-        name = '',
-        startTime = Date.now(),
-        endTime = Date.now(),
-        isPaused = false,
-        isEnded = false,
-        accumulated = endTime - startTime } = req.query;
+router.put('/:id', async (req, res) => {
+    const { id } = req.params.id;
+    const { body } = req;
     
-    const message = await taskService.update({ id, name, startTime, endTime, isPaused, isEnded, accumulated });
+    const message = await taskService.updateTask({ id, body });
 
     return res.status(200).send('Task successfully updated');
 });
