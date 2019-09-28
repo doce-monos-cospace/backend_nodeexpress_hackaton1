@@ -12,12 +12,18 @@ router.get('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     const { name = '' } = req.query;
-    const message = await taskService.getTasksByName({ name });
+    let tasks;
+    if(name !== '') {
+        tasks = await taskService.getTasksByName({ name });
+        return res.json({ tasks });
+    }
 
-    return res.json({ message });
+    tasks = await taskService.getTasks();
+
+    return res.json({ tasks });
 });
 
-router.get('/active', async(req, res) => {
+router.get('/active', async (req, res) => {
     const activeTasks = await taskService.getActiveTasks();
     return res.json({ activeTasks });
 });
