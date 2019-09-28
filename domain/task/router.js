@@ -5,13 +5,13 @@ const createTaskService = require('./service');
 const taskService = createTaskService(db);
 
 router.get('/',async (req, res) =>{
-const message = await taskService.getTasks();
-return res.json({ message });
+const tasks = await taskService.getTasks();
+return res.json({ tasks });
 })
 
 router.get('/finish',async (req, res) =>{
-    const message = await taskService.getTasksFinished();
-    return res.json({ message });
+    const finishedTasks = await taskService.getTasksFinished();
+    return res.json({ finishedTasks });
  })
 
 module.exports = router;

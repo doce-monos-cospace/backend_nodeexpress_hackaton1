@@ -4,14 +4,14 @@ module.exports = (db) => {
         return tasks;
     };
 
-    const getTasksFinished = async () => {
-        const tasks = await db.Tasks.find({ isEnded });
+    const getFinishedTasks = async () => {
+        const tasks = await db.Tasks.find({ isEnded: true });
         return tasks;
     };
 
     return {
         getTasks,
-        getTasksFinished,
+        getFinishedTasks,
     };
 };
 
