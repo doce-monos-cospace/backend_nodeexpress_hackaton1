@@ -6,11 +6,15 @@ const morgan = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+const dummyRouter = require('./domain/dummy/routes');
+
 app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use('/dummy', dummyRouter);
+
 require('./db');
 
-app.listen(3000, () => console.log('Servidor iniciado en el puerto 3000'));
+app.listen(8082, () => console.log('Servidor iniciado en el puerto 8082'));

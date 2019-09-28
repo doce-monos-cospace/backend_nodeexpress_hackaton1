@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const Dummy = require('../domain/dummy/model');
+
 const start = mongoose.connect(
   'mongodb+srv://docemonos:pass1234@stridermongo-4ef3j.mongodb.net/test',
   { useNewUrlParser: true, useUnifiedTopology: true },
@@ -16,4 +18,5 @@ const start = mongoose.connect(
 // Aquí se exportan los modelos
 module.exports = {
   start,
+  Dummy,
 };
