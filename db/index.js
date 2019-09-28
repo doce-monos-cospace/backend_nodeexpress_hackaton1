@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const Dummy = require('../domain/dummy/model');
+const Task = require('../domain/task/model');
 
 const start = mongoose.connect(
   'mongodb+srv://docemonos:pass1234@stridermongo-4ef3j.mongodb.net/test',
@@ -19,4 +20,5 @@ const start = mongoose.connect(
 module.exports = {
   start,
   Dummy,
+  Task,
 };
