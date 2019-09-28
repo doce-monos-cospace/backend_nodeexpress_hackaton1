@@ -1,4 +1,9 @@
 module.exports = (db) => {
+    const getTasksByName = async ({ name }) => {
+              const tasks = await db.Task.find({ name });
+        
+        return tasks;
+    };
     const getTasks = async () => {
         const tasks = await db.Task.find({});
         return tasks;
@@ -13,13 +18,7 @@ module.exports = (db) => {
         const deleteTask = await db.Task.findByIdAndRemove({ id });
         return deleteTask;
     };
-
-   const getTasksByName = async ({ name }) => {
-        const tasks = await db.Task.find({ name });
-        
-        return tasks;
-    };
-
+  
     const getActiveTasks = async () => {
         const tasks = await db.Task.find({ isEnded: false, isPaused:false });
 
@@ -42,14 +41,24 @@ module.exports = (db) => {
         
     };
 
-  
+    const updateTask = async({ id, data }) => {
+        try {
+            const updatedTask = await db.Task.findByIdAndUpdate(id, data);
+
+            return updatedTask;
+        } catch (error) {
+            console.error(error);
+        }
+    };
+    
     return {
         getTasks,
         getFinishedTasks,
         deleteTask,
-       getTasksByName,
+        getTasksByName,
         getActiveTasks,
         create,
+        updateTask,
     };
 };
 
