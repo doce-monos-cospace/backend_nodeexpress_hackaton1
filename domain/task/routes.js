@@ -13,8 +13,12 @@ router.get('/', async (req, res) => {
 
 router.get('/active', async(req, res) => {
     const message = await taskService.getActiveTasks();
-
     return res.json({ message });
 });
+
+router.delete('/:id',async (req, res) =>{
+    const deleteTask = await taskService.deleteTask(id);
+    return res.json({ deleteTask });
+ })
 
 module.exports = router;
