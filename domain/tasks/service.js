@@ -32,7 +32,8 @@ module.exports = (db) => {
                 startTime,
                 endTime,
                 isPaused: false,
-                isEnded: false});
+                isEnded: false,
+                accumulated: 0});
 
                 return; 
         } catch (error) {
