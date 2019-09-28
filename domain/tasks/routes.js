@@ -39,7 +39,7 @@ router.put('/:id', async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     
-    const message = await taskService.updateTask({ id, body });
+    const message = await taskService.updateTask({ id, data: body });
 
     return res.status(200).send('Task successfully updated');
 });

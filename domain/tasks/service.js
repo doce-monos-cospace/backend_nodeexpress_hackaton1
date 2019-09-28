@@ -16,9 +16,9 @@ module.exports = (db) => {
 
     const deleteTask = async (id) => {
         try {
-        const deleteTask = await db.Task.findByIdAndRemove({ id });
+        const deleteTask = await db.Task.findByIdAndRemove(id);
         return deleteTask;
-        
+
         } catch(error){
             console.error(error);
         }
