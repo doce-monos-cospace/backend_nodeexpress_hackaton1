@@ -13,7 +13,7 @@ module.exports = (db) => {
 
     const create = async ({ name, startTime, endTime }) => {
         try {
-            const newTask = await db.Task.insertOne({
+            const newTask = await db.Task.create({
                 name: _name,
                 startTime: _startTime,
                 endTime: _endTime,
