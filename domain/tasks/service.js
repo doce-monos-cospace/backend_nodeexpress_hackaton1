@@ -25,17 +25,11 @@ module.exports = (db) => {
         return tasks;
     };
 
-    const create = async ({ name, startTime, endTime }) => {
+    const create = async ( data ) => {
         try {
-            const newTask = await db.Task.create({
-                name,
-                startTime,
-                endTime,
-                isPaused: false,
-                isEnded: false,
-                accumulated: 0});
+            const newTask = await db.Task.create(data);
 
-                return; 
+                return newTask; 
         } catch (error) {
             console.error(error);
         }

@@ -23,10 +23,10 @@ router.delete('/:id',async (req, res) =>{
  })
 
 router.post('/', async(req, res) => {
-    const {name = '', startTime = Date.now(), endTime = Date.now() } = req.query;
-    const createdTask = await taskService.create({ name, startTime, endTime });
+    const { body } = req;
+    const createdTask = await taskService.create(body);
 
-    return res.status(200).send('Task successfully created');
+    return res.status(200).send(createdTask);
 });
 
 router.put('/:id', async (req, res) => {
