@@ -25,7 +25,7 @@ router.post('/', async(req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-    const { id } = req.params.id;
+    const { id } = req.params;
     const { body } = req;
     
     const message = await taskService.updateTask({ id, body });
