@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const Dummy = require('../domain/dummy/model');
+const Task = require('../domain/tasks/model');
 
 const start = mongoose.connect(
-  'mongodb+srv://docemonos:pass1234@stridermongo-4ef3j.mongodb.net/test',
+  'mongodb+srv://docemonos:pass1234@stridermongo-4ef3j.mongodb.net/conexion_mongo',
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
     if (err) {
@@ -19,4 +20,5 @@ const start = mongoose.connect(
 module.exports = {
   start,
   Dummy,
+  Task,
 };
