@@ -1,0 +1,27 @@
+{
+  "name": "hackaton-back-node",
+  "version": "0.0.1",
+  "description": "Arquitectura básica creada para la hackatón de Doce Monos",
+  "main": "app.js",
+  "scripts": {
+    "start": "node .",
+    "nodemon": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Copero <alexcdev95@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1"
+  },
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.2"
+  }
+}
