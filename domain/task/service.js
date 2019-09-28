@@ -9,9 +9,15 @@ module.exports = (db) => {
         return tasks;
     };
 
+    const deleteTask = async (id) => {
+        const deleteTask = await db.Tasks.delete({ id });
+        return deleteTask;
+    };
+
     return {
         getTasks,
         getFinishedTasks,
+        deleteTask,
     };
 };
 
